@@ -8,10 +8,12 @@ const removeStopwords = require("../utils/stopwords");
 const getPoints = require("../utils/getPoints");
 
 
+
+
 Router.post("/",(req,res,next)=>{
     const { review } = req.body;
 
-    //Normalisationword
+    //Word Normalisation
     const normalisedText = normaliser(review);
 
     //Word Tokenisation
