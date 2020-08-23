@@ -15,12 +15,11 @@ app.use(bodyParser.json()); //View Engine
 app.set("view engine", "ejs");
 app.use(express["static"](__dirname + "/public")); //Bring Routes
 
-app.get("/", function (req, res) {
-  res.render("reviewPage");
-});
+var review = require("./routes/review");
 
-var review = require("./routes/review"); //Routes
+var home = require("./routes/home"); //Routes
 
 
 app.use("/review", review);
+app.use("/home", home);
 module.exports = app;

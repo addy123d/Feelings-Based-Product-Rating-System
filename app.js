@@ -11,13 +11,14 @@ app.set("view engine","ejs");
 app.use(express.static(__dirname + "/public"));
 
 //Bring Routes
-app.get("/",(req,res)=>{
-    res.render("reviewPage");
-})
 const review = require("./routes/review");
+const home = require("./routes/home");
+
+
 
 //Routes
 app.use("/review", review);
+app.use("/home", home);
 
 
 module.exports = app;

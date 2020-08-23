@@ -95,6 +95,11 @@
         font-size: 2.2rem;
     }
 
+    .info .pencil:hover,.info .cart:hover{
+        transition: all .3s;
+        color: #747474;
+    }
+
 
     .info .cart{
         position: absolute;
@@ -139,17 +144,10 @@
         justify-content: center;
     }
 
-   /* input:focus{
-        transition: all .4s;
-        padding: 1em 1.7em 1em 2.9em;
-        width: 250%;
-        display: flex;
-        justify-content: center;
-    } */
 
     .searchBar i{
         position: absolute;
-        top: 15%;
+        top: 11%;
         left: 19%;
         font-size: 1.7rem;
         background: #ffffff;
@@ -159,6 +157,11 @@
         border-radius: 100%;
     }
 
+    a{
+        text-decoration: none;
+        color: #fffbfb;
+    }
+    
     @media all and (max-width: 1500px){
         body{
             margin: 0;
