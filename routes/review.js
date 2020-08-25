@@ -1,6 +1,7 @@
 const express = require("express");
 const Router = express.Router();
 const natural = require("natural");
+const products = require("../utils/products");
 const wordTokeniser = require("../utils/wordtokeniser");
 const normaliser = require("../utils/normalisation");
 const corrector = require("../utils/spellCorrector");
@@ -32,6 +33,21 @@ Router.post("/",(req,res,next)=>{
         points : `${resultantPoints}`
     })
    
+})
+
+Router.get("/:id",(req,res,next)=>{
+    const id = req.params.id;
+    
+    //Find product with given id - 1.findIndex  2.Search in that array on the basis of index
+    const productIndex = products.findIndex((product)=>product.id == id);
+    
+    //Find the product in products Array;
+    const requiredProduct = products[productIndex]; 
+
+    res.status(200).render("reviewPage",{
+        product : requiredProduct
+    })
+
 })
 
 

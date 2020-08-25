@@ -3,51 +3,276 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat:wght@300&family=Poppins:wght@300&family=Raleway&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="home.css">
-    <title>Products</title>
+    <title>Review</title>
 </head>
+<style>
+    
+
+    body{
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        /* flex-flow: wrap; */
+        min-height : 50vh;
+        background: #ffffff;  
+}
+
+.container{
+    width: 1200px;
+    height: auto;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    grid-gap: 10px;
+    place-items : center;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.image{
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 300px;
+    width: 300px;
+    cursor: pointer;
+}
+
+.image img{
+    display: block;
+    height: 300px;
+    width: 300px;
+}
+
+.details .name{
+    height: 200px;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+}
+
+.details .name h2{
+    margin-bottom: 5%;
+}
+
+.details .name #emoji{
+    font-size: 2rem;
+}
+
+.details .name #price{
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: bold;
+    margin-top: 5%;
+    font-size: 1.7rem;
+    color: rgb(65, 65, 65);
+}
+
+.form .comment,.form .submitBtn{
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.comment input{
+    padding: .9em 2em .9em 2.2em;
+    background: #ffffff;
+    border: 1.5px solid rgb(108, 108, 255);
+    font-family: 'Josefin Sans', sans-serif;
+    border-radius: 40px;
+    outline: none;
+}
+
+.comment i{
+    position: absolute;
+    top: 27%;
+    left: 5%;
+}
+
+.submitBtn button{
+    margin: 10%;
+    padding: .6em 2em .6em 2em;
+    background: rgb(108, 108, 255);
+    border: 1px solid gray;
+    color: #f7f7f7;
+    text-shadow: 1px 1px 2px #000000;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: .9rem;
+    font-family: 'Josefin Sans', sans-serif;
+    text-transform: uppercase;
+    outline: none;
+}
+
+.submitBtn i{
+    position: absolute;
+    top: 40%;
+    left: 13%;
+    color: #fffefe;
+    text-shadow: 1px 1px 2px #000000;
+}
+
+.submitBtn button:hover{
+    transition: all .3s;
+    background: rgb(81, 81, 255);
+}
+
+.collection{
+    margin: 3%;
+}
+
+.collection .user-comments{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 500px;
+    /* color: #fffbfb; */
+}
+
+.collection .comment-title{
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.comment-title h2{
+    font-family: 'Josefin Sans',sans-serif;
+    text-transform: uppercase;
+    border-bottom: .5px solid #2e2e2e;
+}
+
+.user-comments .commentBox{
+    padding: 1em;
+    background: #ffffff;
+    color: #000000;
+    font-family: 'Montserrat',sans-serif;
+    margin-top: 4%;
+    border-radius: 5px;
+    background: #ffffff;
+    box-shadow:  5px 5px 10px #bdbdbd, 
+                -5px -5px 10px #ffffff;
+}
+
+.user-comments .commentBox p{
+    font-style: italic;
+}
+
+.user-comments .commentBox h2{
+    text-align: center;
+}
+
+
+
+@media all and (max-width: 1200px){
+    body{
+        flex-flow: wrap;
+    }
+}
+
+@media all and (max-width: 680px){
+    .collection .user-comments{
+        width: 250px;
+    }
+
+    .user-comments .commentBox{
+        padding: .5em;
+    }
+}
+
+</style>
 <body>
-    <div class="searchBar">
-        <i class="fa fa-search search" aria-hidden="true"></i>
-        <input type="text" id="query" placeholder="Search...">
-    </div>
     <div class="container">
-
-
-    <%for(var i=0; i< products.length; i++){%>        
-        <div class="card">
-            <img src="<%= products[i].imgSrc %>" alt="">
-            <div class="info">
-                <a href="/review/<%=products[i].id%>"><i class="fa fa-pencil-square-o pencil" aria-hidden="true"></i></a>
-                <a href="/cart/<%=products[i].id%>"><i class="fa fa-cart-plus cart" aria-hidden="true"></i></a>
+        <div class="image">
+            <img src="<%= product.imgSrc %>" alt="image">
+        </div>
+        <div class="details">
+            <div class="name">
+                <h2><%= product.name %></h2>
+                <p id="emoji">&#128525;</p>
+                <p id="price">$<%= product.price %></p>
             </div>
-            <div class="rating">
-                <h2><%= products[i].name %></h2>
-
-                <!-- Good Rating -->
-                <%if( products[i].rating > 0 ){%>
-                <p id="emoji">&#128525</p>
-                <%}%>
-
-                <!-- Neutral Rating -->
-                <%if( products[i].rating == 0 ){%>
-                <p id="emoji">&#128528</p>
-                <%}%>
-
-                <!-- Poor Rating -->
-                <%if( products[i].rating < 0 ){%>
-                <p id="emoji">&#128532</p>
-                <%}%>
-
-                <p>$<%= products[i].price %></p>
+            <div class="form">
+                <form action="/home" method="GET">
+                    <div class="comment">
+                        <input type="text" id="commentText" placeholder="Comment..." required>
+                        <i class="fa fa-comment" aria-hidden="true"></i>
+                    </div>
+                    <div class="submitBtn">
+                        <button id="commentPost">Post</button>
+                        <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                    </div>
+                </form>
             </div>
         </div>
-    <%}%>
+    </div>
 
 
+
+    <div class="collection">
+        <div class="comment-title">
+            <h2>Comments <i class="fa fa-comments" aria-hidden="true"></i></h2>
+        </div>
+        <div class="user-comments">
+        </div>
     </div>
 </body>
-<script src="main.js"></script>
+<!-- <script src="review.js"></script> -->
+<script>
+    const commentPost = document.getElementById("commentPost");
+const commentText = document.getElementById("commentText");
+const userComments = document.querySelector(".user-comments");
+
+commentPost.addEventListener("click",(e)=>{
+    e.preventDefault();
+
+    let comments = localStorage.getItem("comments");
+    if(comments ===  null)
+        commentsObject = [];
+    else
+        commentsObject = JSON.parse(comments);
+    
+    if(commentText.value == "")
+    alert("Please enter some text !");
+    else
+    commentsObject.push(commentText.value);
+    
+    localStorage.setItem("comments",JSON.stringify(commentsObject));
+
+    //Display Comments
+    displayComments(commentsObject);
+
+    //For making textbox empty !
+    commentText.value = "";
+})
+
+
+function displayComments(comments){
+    let html = ""
+    comments.forEach(element => {
+        html += `<div class="commentBox">
+            <p>Aditya Says</p>
+            <h2>${element}</h2>
+        </div>`
+    });
+
+    userComments.innerHTML = html;
+}
+
+window.addEventListener("load",()=>{
+    const comments = localStorage.getItem("comments");
+
+    if (comments === null){
+        commentsObj = [];
+    }    
+    else
+        commentsObj = JSON.parse(comments);
+
+    displayComments(commentsObj);
+})
+
+
+</script>
 </html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat:wght@300&family=Poppins:wght@300&family=Raleway&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="home.css">
+    <title>Products</title>
+</head>
+<body>
+    <div class="searchBar">
+        <i class="fa fa-search search" aria-hidden="true"></i>
+        <input type="text" id="query" placeholder="Search...">
+    </div>
+    <div class="container">
+
+
+    <%for(var i=0; i< products.length; i++){%>        
+        <div class="card">
+            <img src="<%= products[i].imgSrc %>" alt="">
+            <div class="info">
+                <a href="/review/<%=products[i].id%>"><i class="fa fa-pencil-square-o pencil" aria-hidden="true"></i></a>
+                <a href="/cart/<%=products[i].id%>"><i class="fa fa-cart-plus cart" aria-hidden="true"></i></a>
+            </div>
+            <div class="rating">
+                <h2><%= products[i].name %></h2>
+
+                <!-- Good Rating -->
+                <%if( products[i].rating > 0 ){%>
+                <p id="emoji">&#128525</p>
+                <%}%>
+
+                <!-- Neutral Rating -->
+                <%if( products[i].rating == 0 ){%>
+                <p id="emoji">&#128528</p>
+                <%}%>
+
+                <!-- Poor Rating -->
+                <%if( products[i].rating < 0 ){%>
+                <p id="emoji">&#128532</p>
+                <%}%>
+
+                <p>$<%= products[i].price %></p>
+            </div>
+        </div>
+    <%}%>
+
+
+    </div>
+</body>
+<script src="main.js"></script>
+</html>
