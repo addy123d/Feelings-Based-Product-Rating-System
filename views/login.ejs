@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <title>Register</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #ffffff;
+    }
+
+    .container{
+        width: 1200px;
+        height: auto;
+        display: grid;
+        place-items: center;
+    }
+
+    .form{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding: 4em 4em 4em 4em;
+        margin: 10%;
+        border-radius: 10px;
+        background: #ffffff;
+        box-shadow:  20px 20px 60px #d9d9d9, 
+                    -20px -20px 60px #ffffff;
+    }
+
+    .form .email,.form .password,.form .submitButton{
+        padding: 1em 1em 1em 1em;
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+
+    input[type = "email"],input[type = "password"]{
+        padding: 1em 1em 1em 2.4em;
+        border-radius: 5px;
+        outline: none;
+        background: #ffffff;
+        border: 1.5px solid rgb(108, 108, 255);
+        font-family: 'Josefin Sans', sans-serif;
+    }
+
+    .email i,.password i{
+        position: absolute;
+        top: 35%;
+        right: 82%;
+    }
+
+    .submitButton i{
+        position: absolute;
+        top: 35%;
+        right: 28%;
+        color: #ffffff;
+        text-shadow: 1px 1px 2px #000000; 
+    }
+
+    .submitButton{
+        display: flex;
+        justify-content: center;
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+
+    .submitButton button{
+        padding: .6em 2em .6em 2em;
+        background: rgb(108, 108, 255);
+        border: 1px solid gray;
+        color: #f7f7f7;
+        text-shadow: 1px 1px 2px #000000;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: .9rem;
+        font-family: 'Josefin Sans', sans-serif;
+        text-transform: uppercase;
+        outline: none;
+    }
+
+    .submitButton button:hover{
+        transition: all .3s;
+        background: rgb(81, 81, 255);
+    }
+
+    .heading{
+        position: relative;
+        top: 0;
+        left: 0;
+        height: 50px;
+    }
+
+
+    .heading h2{
+        font-family: 'Josefin Sans', sans-serif;
+        text-transform: uppercase;
+        border-bottom: .5px solid #000000;
+    }
+
+
+    @media all and (max-width: 574.6px){
+        .form{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            padding: 4em 2.5em 4em 2.5em;
+            margin: 10%;
+            border-radius: 10px;
+            background: #ffffff;
+            box-shadow:  20px 20px 60px #d9d9d9, 
+                        -20px -20px 60px #ffffff;
+        }
+    }
+</style>
+<body>
+    <div class="container">
+        <%if(status === "Login"){%>
+            <div class="form">
+                <div class="heading">
+                    <h2>Login <i class="fa fa-sign-in" aria-hidden="true"></i></h2>
+                </div>
+                <div class="email">
+                    <input type="email" name="email" placeholder="Email-Id" id="">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                </div>
+                <div class="password">
+                    <input type="password" name="password" placeholder="Enter Your Password...." id="">
+                    <i class="fa fa-key" aria-hidden="true"></i>
+                </div>
+                <div class="submitButton">
+                    <button>Sign In</button>
+                    <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                </div>
+            </div>
+            <%}else{%>
+        <div class="form">
+            <div class="heading">
+                <h2>Register <i class="fa fa-user-plus" aria-hidden="true"></i></h2>
+            </div>
+            <div class="email">
+                <input type="email" name="email" placeholder="Email-Id" id="">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+            </div>
+            <div class="password">
+                <input type="password" name="password" placeholder="Choose Your Password...." id="">
+                <i class="fa fa-key" aria-hidden="true"></i>
+            </div>
+            <div class="submitButton">
+                <button>Sign Up</button>
+                <i class="fa fa-paper-plane" aria-hidden="true"></i>
+            </div>
+        </div>
+        <%}%>
+    </div>
+</body>
+</html>

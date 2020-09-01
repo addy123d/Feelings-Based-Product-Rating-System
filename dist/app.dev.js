@@ -17,9 +17,13 @@ app.use(express["static"](__dirname + "/public")); //Bring Routes
 
 var review = require("./routes/review");
 
-var home = require("./routes/home"); //Routes
+var home = require("./routes/home");
+
+var register = require("./routes/register"); //Routes
 
 
 app.use("/review", review);
 app.use("/home", home);
+app.use("/register", register);
+app.use("/", register);
 module.exports = app;

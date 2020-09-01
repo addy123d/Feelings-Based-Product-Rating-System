@@ -36,21 +36,6 @@ Router.post("/",(req,res)=>{
 })
 
 
-//Update
-Router.put("/:id",(req,res,next)=>{
-    const id = req.params.id;
-    const { rating } = req.body;
 
-    //Grab index of product from storage of products using findIndex
-    const index = products.findIndex((product)=>product.id === id);
-
-    //Updation of rating points
-    products[index].rating = pointAddition(parseFloat(rating) , products[index].rating);
-
-    console.log(products);
-    res.status(200).json({
-        message : "Updated !"
-    })
-})
 
 module.exports = Router;

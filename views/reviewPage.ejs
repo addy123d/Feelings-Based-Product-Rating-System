@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat:wght@300&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <title>Review</title>
 </head>
 <style>
-    
-
-    body{
+    body {
         margin: 0;
         padding: 0;
         display: flex;
@@ -18,172 +19,192 @@
         align-items: center;
         flex-direction: column;
         /* flex-flow: wrap; */
-        min-height : 50vh;
-        background: #ffffff;  
-}
-
-.container{
-    width: 1200px;
-    height: auto;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
-    grid-gap: 10px;
-    place-items : center;
-    box-sizing: border-box;
-    padding: 10px;
-}
-
-.image{
-    position: relative;
-    top: 0;
-    left: 0;
-    height: 300px;
-    width: 300px;
-    cursor: pointer;
-}
-
-.image img{
-    display: block;
-    height: 300px;
-    width: 300px;
-}
-
-.details .name{
-    height: 200px;
-    font-family: 'Montserrat', sans-serif;
-    text-transform: uppercase;
-}
-
-.details .name h2{
-    margin-bottom: 5%;
-}
-
-.details .name #emoji{
-    font-size: 2rem;
-}
-
-.details .name #price{
-    font-family: 'Josefin Sans', sans-serif;
-    font-weight: bold;
-    margin-top: 5%;
-    font-size: 1.7rem;
-    color: rgb(65, 65, 65);
-}
-
-.form .comment,.form .submitBtn{
-    position: relative;
-    top: 0;
-    left: 0;
-}
-
-.comment input{
-    padding: .9em 2em .9em 2.2em;
-    background: #ffffff;
-    border: 1.5px solid rgb(108, 108, 255);
-    font-family: 'Josefin Sans', sans-serif;
-    border-radius: 40px;
-    outline: none;
-}
-
-.comment i{
-    position: absolute;
-    top: 27%;
-    left: 5%;
-}
-
-.submitBtn button{
-    margin: 10%;
-    padding: .6em 2em .6em 2em;
-    background: rgb(108, 108, 255);
-    border: 1px solid gray;
-    color: #f7f7f7;
-    text-shadow: 1px 1px 2px #000000;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: .9rem;
-    font-family: 'Josefin Sans', sans-serif;
-    text-transform: uppercase;
-    outline: none;
-}
-
-.submitBtn i{
-    position: absolute;
-    top: 40%;
-    left: 13%;
-    color: #fffefe;
-    text-shadow: 1px 1px 2px #000000;
-}
-
-.submitBtn button:hover{
-    transition: all .3s;
-    background: rgb(81, 81, 255);
-}
-
-.collection{
-    margin: 3%;
-}
-
-.collection .user-comments{
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 500px;
-    /* color: #fffbfb; */
-}
-
-.collection .comment-title{
-    position: relative;
-    top: 0;
-    left: 0;
-}
-
-.comment-title h2{
-    font-family: 'Josefin Sans',sans-serif;
-    text-transform: uppercase;
-    border-bottom: .5px solid #2e2e2e;
-}
-
-.user-comments .commentBox{
-    padding: 1em;
-    background: #ffffff;
-    color: #000000;
-    font-family: 'Montserrat',sans-serif;
-    margin-top: 4%;
-    border-radius: 5px;
-    background: #ffffff;
-    box-shadow:  5px 5px 10px #bdbdbd, 
-                -5px -5px 10px #ffffff;
-}
-
-.user-comments .commentBox p{
-    font-style: italic;
-}
-
-.user-comments .commentBox h2{
-    text-align: center;
-}
-
-
-
-@media all and (max-width: 1200px){
-    body{
-        flex-flow: wrap;
-    }
-}
-
-@media all and (max-width: 680px){
-    .collection .user-comments{
-        width: 250px;
+        min-height: 50vh;
+        background: #ffffff;
     }
 
-    .user-comments .commentBox{
-        padding: .5em;
+    .container {
+        width: 1200px;
+        height: auto;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-gap: 10px;
+        place-items: center;
+        box-sizing: border-box;
+        padding: 10px;
     }
-}
 
+    .image {
+        position: relative;
+        top: 0;
+        left: 0;
+        height: 300px;
+        width: 300px;
+        cursor: pointer;
+    }
+
+    .image img {
+        display: block;
+        height: 300px;
+        width: 300px;
+    }
+
+    .details .name {
+        height: 200px;
+        font-family: 'Montserrat', sans-serif;
+        text-transform: uppercase;
+    }
+
+    .details .name h2 {
+        margin-bottom: 5%;
+    }
+
+    .details .name #emoji {
+        font-size: 2rem;
+    }
+
+    .details .name #price {
+        font-family: 'Josefin Sans', sans-serif;
+        font-weight: bold;
+        margin-top: 5%;
+        font-size: 1.7rem;
+        color: rgb(65, 65, 65);
+    }
+
+    .form .comment,
+    .form .submitBtn {
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+
+    .comment input {
+        padding: .9em 2em .9em 2.2em;
+        background: #ffffff;
+        border: 1.5px solid rgb(108, 108, 255);
+        font-family: 'Josefin Sans', sans-serif;
+        border-radius: 40px;
+        outline: none;
+    }
+
+    .comment i {
+        position: absolute;
+        top: 27%;
+        left: 5%;
+    }
+
+    .submitBtn button {
+        margin: 10%;
+        padding: .6em 2em .6em 2em;
+        background: rgb(108, 108, 255);
+        border: 1px solid gray;
+        color: #f7f7f7;
+        text-shadow: 1px 1px 2px #000000;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: .9rem;
+        font-family: 'Josefin Sans', sans-serif;
+        text-transform: uppercase;
+        outline: none;
+    }
+
+    .submitBtn i {
+        position: absolute;
+        top: 40%;
+        left: 13%;
+        color: #fffefe;
+        text-shadow: 1px 1px 2px #000000;
+    }
+
+    .submitBtn button:hover {
+        transition: all .3s;
+        background: rgb(81, 81, 255);
+    }
+
+    .collection {
+        margin: 3%;
+    }
+
+    .collection .user-comments {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 500px;
+        /* color: #fffbfb; */
+    }
+
+    .collection .comment-title {
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+
+    .comment-title h2 {
+        font-family: 'Josefin Sans', sans-serif;
+        text-transform: uppercase;
+        border-bottom: .5px solid #2e2e2e;
+    }
+
+    .user-comments .commentBox {
+        padding: 1em;
+        background: #ffffff;
+        color: #000000;
+        font-family: 'Montserrat', sans-serif;
+        margin-top: 4%;
+        border-radius: 5px;
+        background: #ffffff;
+        box-shadow: 5px 5px 10px #bdbdbd,
+            -5px -5px 10px #ffffff;
+    }
+
+    .user-comments .commentBox p {
+        font-style: italic;
+    }
+
+    .user-comments .commentBox h2 {
+        text-align: center;
+    }
+
+    .notify{
+        position: fixed;
+        top: 0;
+        background: rgb(102, 214, 102);
+        padding: .5em 2em .5em 2em;
+        opacity: 0;
+        transition: opacity .3s;
+        z-index: 10;
+    }
+
+    .notify h2{
+        font-weight: bolder;
+        font-family: 'Montserrat',sans-serif;
+        color: #2e2e2e;
+    }
+
+
+
+    @media all and (max-width: 1200px) {
+        body {
+            flex-flow: wrap;
+        }
+    }
+
+    @media all and (max-width: 680px) {
+        .collection .user-comments {
+            width: 250px;
+        }
+
+        .user-comments .commentBox {
+            padding: .5em;
+        }
+    }
 </style>
+
 <body>
+    <div class="notify">
+        <h2>Review Posted &#10004;</h2>
+    </div>
     <div class="container">
         <div class="image">
             <img src="<%= product.imgSrc %>" alt="image">
@@ -191,13 +212,21 @@
         <div class="details">
             <div class="name">
                 <h2><%= product.name %></h2>
+                <%if( product.rating > 0){%>
                 <p id="emoji">&#128525;</p>
+                <%}%>
+                <%if( product.rating === 0){%>
+                <p id="emoji">&#128528;</p>
+                <%}%>
+                <%if( product.rating < 0){%>
+                <p id="emoji">&#128545;</p>
+                <%}%>
                 <p id="price">$<%= product.price %></p>
             </div>
             <div class="form">
-                <form action="/home" method="GET">
+                <form id="reviewForm">
                     <div class="comment">
-                        <input type="text" id="commentText" placeholder="Comment..." required>
+                        <input type="text" id="commentText" placeholder="Write Review Here......" required>
                         <i class="fa fa-comment" aria-hidden="true"></i>
                     </div>
                     <div class="submitBtn">
@@ -213,65 +242,151 @@
 
     <div class="collection">
         <div class="comment-title">
-            <h2>Comments <i class="fa fa-comments" aria-hidden="true"></i></h2>
+            <h2>Reviews <i class="fa fa-comments" aria-hidden="true"></i></h2>
         </div>
         <div class="user-comments">
+            <%for(var i=0; i< product.comments.length; i++){%>
+            <div class="commentBox">
+                <p><%= product.comments[i].username %> Says</p>
+                <h2><%= product.comments[i].comment %></h2>
+            </div>
+            <%}%>
         </div>
     </div>
 </body>
-<!-- <script src="review.js"></script> -->
 <script>
+    // Grab HTML Elemments
+
+    // Comments Related Elements
     const commentPost = document.getElementById("commentPost");
-const commentText = document.getElementById("commentText");
-const userComments = document.querySelector(".user-comments");
+    const commentText = document.getElementById("commentText");
+    const userComments = document.querySelector(".user-comments");
 
-commentPost.addEventListener("click",(e)=>{
-    e.preventDefault();
+    // Form related Elements
+    const form = document.querySelector("#reviewForm");
+    const emoji = document.querySelector("#emoji");
 
-    let comments = localStorage.getItem("comments");
-    if(comments ===  null)
-        commentsObject = [];
-    else
-        commentsObject = JSON.parse(comments);
-    
-    if(commentText.value == "")
-    alert("Please enter some text !");
-    else
-    commentsObject.push(commentText.value);
-    
-    localStorage.setItem("comments",JSON.stringify(commentsObject));
+    // Notification Element
+    const notification = document.querySelector(".notify");
 
-    //Display Comments
-    displayComments(commentsObject);
-
-    //For making textbox empty !
-    commentText.value = "";
-})
+    // Localstorage Comments Display
+    function displayComments(comment) {
+        userComments.innerHTML += `<div class="commentBox">
+                                <p>User Says</p>
+                                <h2>${comment}</h2>
+                               </div>`;
+    }
 
 
-function displayComments(comments){
-    let html = ""
-    comments.forEach(element => {
-        html += `<div class="commentBox">
-            <p>Aditya Says</p>
-            <h2>${element}</h2>
-        </div>`
-    });
+    // Feelings Analysis
+    const postReview = (e) => {
+        e.preventDefault();
 
-    userComments.innerHTML = html;
-}
+        //Sentiment code
 
-window.addEventListener("load",()=>{
-    const comments = localStorage.getItem("comments");
+        //GrabValue
+        const review = commentText.value;
 
-    if (comments === null){
-        commentsObj = [];
-    }    
-    else
-        commentsObj = JSON.parse(comments);
+        // Options
+        const options = {
+            method: "POST",
+            body: JSON.stringify({ review }),
+            headers: new Headers({ "Content-Type": "application/json" })
+        }
 
-    displayComments(commentsObj);
-})
+        // POST Request
+        fetch("/review", options)
+            .then(res => res.json())
+            .then((analysis) => {
+                const { resultantPoints } = analysis;
+
+                // For positive feeling
+                if (resultantPoints > 0) {
+                    emoji.innerHTML = "&#128525;";
+                }
+
+                // For neutral feeling
+                if (resultantPoints === 0) {
+                    emoji.innerHTML = "&#128528;";
+                }
+
+                // For negative feeling
+                if (resultantPoints < 0) {
+                    emoji.innerHTML = "&#128545;";
+                }
+
+            })
+            .catch(err => console.log(err));
+
+    }
+
+    commentText.addEventListener("keyup", postReview);
+
+
+
+
+    // Post Comments On Wall !
+    commentPost.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        // Notification
+        notification.style.opacity = "1";
+        setTimeout(()=>{
+            notification.style.opacity = "0";
+        },1000)
+
+        //To access id from url bar
+        const path = location.pathname.split("/");
+        const id = path[2];
+
+        // Access Value
+        const value = commentText.value;
+
+        // Store Comments in LocalStorage
+        let comments = localStorage.getItem("comments");
+
+        // Null-If Check
+        if (comments === null)
+            commentsObject = [];
+        else
+            commentsObject = JSON.parse(comments);
+
+        // Empty Input field Check
+        if (commentText.value == "")
+            alert("Please enter some text !");
+        else {
+            commentsObject.push(commentText.value);
+
+            // Comments Entry in Localstorage
+            localStorage.setItem("comments", JSON.stringify(commentsObject));
+
+
+            //Display Comment Using LocalStorage
+            displayComments(commentText.value);
+
+
+            const options = {};
+            options.method = "POST";
+            options.body = JSON.stringify({
+                comment: commentText.value,
+                id: id
+            })
+            options.headers = new Headers({ 'Content-Type': 'Application/json' });
+
+            // Make POST Request to server => {Pass data to server}
+            fetch(`/review/${id}`, options)
+                .then(res => res.json())
+                .then((result) => {
+                    console.log(result);
+                })
+                .catch(err => console.log(err))
+
+            //For making textbox empty !
+            commentText.value = "";
+
+        }
+    })
+
 
 
 </script>
