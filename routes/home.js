@@ -5,7 +5,7 @@ const products = require("../utils/products");
 
 
 Router.get("/",(req,res)=>{
-    console.log(products);
+    console.log(req.session);
     res.render("homePage",{
         products : products
     });

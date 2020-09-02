@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat:wght@300&display=swap" rel="stylesheet">
-    <title>Login</title>
+    <title>Register</title>
 </head>
 <style>
     *{
@@ -111,6 +111,21 @@
         border-bottom: .5px solid #000000;
     }
 
+    .notify{
+        background: rgb(245, 39, 74);
+        padding: 1em 3em 1em 3em;
+        display: none;
+    }
+
+    .notify h2{
+        font-family: 'Josefin Sans', sans-serif;
+        color: #ffffff;
+        text-shadow: 1px 1px 2px #000000;
+    }
+
+    .notify h2 i{
+        color: yellow;
+    }
 
     @media all and (max-width: 574.6px){
         .form{
@@ -128,26 +143,29 @@
 </style>
 <body>
     <div class="container">
-            <div class="form" id="loginForm">
-                <div class="heading">
-                    <h2>Login <i class="fa fa-sign-in" aria-hidden="true"></i></h2>
-                </div>
-                <form action="/login" method="POST">
-                <div class="email">
-                    <input type="email" class="loginEmail" name="email" placeholder="Email-Id" id="">
-                    <i class="fa fa-envelope" aria-hidden="true"></i>
-                </div>
-                <div class="password">
-                    <input type="password" class="loginPassword" name="password" placeholder="Enter Your Password...." id="">
-                    <i class="fa fa-key" aria-hidden="true"></i>
-                </div>
-                <div class="submitButton">
-                    <button id="loginBtn">Sign In</button>
-                    <i class="fa fa-paper-plane" aria-hidden="true"></i>
-                </div>
-                </form>
+        <div class="notify">
+            <h2>Already Registered <i class="fa fa-exclamation-triangle" aria-hidden="true"></i></h2>
+        </div>
+        <div class="form" id="registerForm">
+            <div class="heading">
+                <h2>Register <i class="fa fa-user-plus" aria-hidden="true"></i></h2>
             </div>
+            <form action="/register" method="POST">
+            <div class="email">
+                <input type="email" class="registerEmail" name="email" placeholder="Email-Id" id="">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+            </div>
+            <div class="password">
+                <input type="password" class="registerPassword" name="password" placeholder="Choose Your Password...." id="">
+                <i class="fa fa-key" aria-hidden="true"></i>
+            </div>
+            <div class="submitButton">
+                <button id="registerBtn">Sign Up</button>
+                <i class="fa fa-paper-plane" aria-hidden="true"></i>
+            </div>
+            </form>
+        </div>
     </div>
 </body>
-<!-- <script src="login.js"></script> -->
+<script src="registration.js"></script>
 </html>

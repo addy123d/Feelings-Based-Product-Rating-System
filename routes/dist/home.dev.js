@@ -9,7 +9,7 @@ var pointAddition = require("../utils/pointCalculation");
 var products = require("../utils/products");
 
 Router.get("/", function (req, res) {
-  console.log(products);
+  console.log(req.session);
   res.render("homePage", {
     products: products
   });
