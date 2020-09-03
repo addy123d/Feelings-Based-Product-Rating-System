@@ -47,6 +47,7 @@ Router.get("/:id",(req,res,next)=>{
     
     //Find the product in products Array;
     const requiredProduct = products[productIndex]; 
+    console.log(requiredProduct);
 
     res.status(200).render("reviewPage",{
         product : requiredProduct,

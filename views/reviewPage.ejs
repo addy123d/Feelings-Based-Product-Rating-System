@@ -202,6 +202,13 @@
         color: rgb(81, 81, 255);
     }
 
+    #emoji span{
+        font-size: 1.5rem;
+        margin-left: 5%;
+        font-weight: bolder;
+    }
+
+
 
 
 
@@ -234,13 +241,13 @@
             <div class="name">
                 <h2><%= product.name %></h2>
                 <%if( product.rating > 0){%>
-                <p id="emoji">&#128525;</p>
+                <p id="emoji">&#128525;<span id="rating"><%= product.rating %></span></p>
                 <%}%>
                 <%if( product.rating === 0){%>
-                <p id="emoji">&#128528;</p>
+                <p id="emoji">&#128528;<span id="rating"><%= product.rating %></span></p>
                 <%}%>
                 <%if( product.rating < 0){%>
-                <p id="emoji">&#128545;</p>
+                <p id="emoji">&#128545;<span id="rating"><%= product.rating %></span></p>
                 <%}%>
                 <p id="price">$<%= product.price %></p>
             </div>
@@ -280,7 +287,8 @@
 </body>
 <script>
     const user = '<%= user %>';
-    console.log(user);
+
+    
     // Grab HTML Elemments
 
     // Comments Related Elements
@@ -302,6 +310,20 @@
                                 <h2>${comment}</h2>
                                </div>`;
     }
+
+ // Point Calculation
+    const points = [];
+    function developPoints_array(finalPoints){
+        points.push(finalPoints);
+    }
+
+    function retrievePoints(){
+        if( points.length === 0)
+            return 5;
+        else
+            return points[points.length-1];
+    }
+
 
 
     // Feelings Analysis
@@ -325,20 +347,28 @@
             .then(res => res.json())
             .then((analysis) => {
                 const { resultantPoints } = analysis;
+                
+                const finalPoint = retrievePoints();
+                const finalPoints = pointAddition(parseFloat(resultantPoints), parseFloat(finalPoint));
+
+
+                //Push points in the array
+                developPoints_array(finalPoints);
+
 
                 // For positive feeling
-                if (resultantPoints > 0) {
-                    emoji.innerHTML = "&#128525;";
+                if (finalPoints > 0) {
+                    emoji.innerHTML = `&#128525;<span id="rating">${finalPoints}</span>`;
                 }
 
                 // For neutral feeling
-                if (resultantPoints === 0) {
-                    emoji.innerHTML = "&#128528;";
+                if (finalPoints === 0) {
+                    emoji.innerHTML = `&#128528;<span id="rating">${finalPoints}</span>`;
                 }
 
                 // For negative feeling
-                if (resultantPoints < 0) {
-                    emoji.innerHTML = "&#128545;";
+                if (finalPoints < 0) {
+                    emoji.innerHTML = `&#128545;<span id="rating">${finalPoints}</span>`;
                 }
 
             })
@@ -347,7 +377,6 @@
     }
 
     commentText.addEventListener("keyup", postReview);
-
 
 
 
@@ -412,6 +441,21 @@
 
         }
     })
+
+
+    // Points Calculation
+
+    function pointAddition(points, totalPoints){
+        if((totalPoints === 5 && points > 0) || (totalPoints < -5 && points < 0)){
+            console.log("Hit me up !");
+            return totalPoints;
+        }else{
+            totalPoints =  points + totalPoints;
+            console.log(totalPoints);
+        }
+            return totalPoints;
+        
+    }
 
 
 

@@ -48,6 +48,7 @@ Router.get("/:id", function (req, res, next) {
   }); //Find the product in products Array;
 
   var requiredProduct = products[productIndex];
+  console.log(requiredProduct);
   res.status(200).render("reviewPage", {
     product: requiredProduct,
     user: req.session.email
