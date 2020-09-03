@@ -127,6 +127,42 @@
         color: yellow;
     }
 
+    .text{
+        display: flex;
+        justify-content: center;
+        margin: 5%;
+    }
+
+    .text h2{
+        text-align: center;
+        font-family: 'Josefin Sans', sans-serif;
+        font-size: 1rem;
+        color: #3a3a3a;
+    }
+
+    a{
+        text-decoration: none;
+    }
+
+       .back{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        margin: 3%;
+    }
+
+    .back i{
+        font-size: 2.5rem;
+        color: rgb(108, 108, 255);
+        outline: none;
+    }
+
+    .back i:hover{
+        transition: all .3s;
+        color: rgb(81, 81, 255);
+    }
+
     @media all and (max-width: 574.6px){
         .form{
             display: flex;
@@ -162,6 +198,12 @@
             <div class="submitButton">
                 <button id="registerBtn">Sign Up</button>
                 <i class="fa fa-paper-plane" aria-hidden="true"></i>
+            </div>
+            <div class="text">
+                <a href="/login"><h2>Registered Already ?</h2></a>
+            </div>
+            <div class="back">
+                <a href="/home"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i></a>
             </div>
             </form>
         </div>

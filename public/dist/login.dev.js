@@ -20,7 +20,13 @@ login.addEventListener("click", function (e) {
   fetch("/login", options).then(function (res) {
     return res.json();
   }).then(function (result) {
-    console.log(result);
+    if (result.email) location.replace("/home");else {
+      document.querySelector(".notify").style.display = "block";
+      document.querySelector(".notify").innerHTML = "<h2>".concat(result, "</h2>");
+      setInterval(function () {
+        document.querySelector(".notify").style.display = "none";
+      }, 5000);
+    }
   })["catch"](function (err) {
     return console.log(err);
   });

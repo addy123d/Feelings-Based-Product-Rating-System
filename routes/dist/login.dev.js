@@ -17,6 +17,14 @@ Router.post("/", function (req, res, next) {
       email = _req$body.email,
       password = _req$body.password;
   var result = login(email, password);
-  res.status(200).json(result);
+
+  if (result.email) {
+    var _email = result.email,
+        _password = result.password;
+    req.session.email = _email;
+    req.session.password = _password;
+    console.log(req.session);
+    res.status(200).json(result);
+  } else res.status(200).json(result);
 });
 module.exports = Router;

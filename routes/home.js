@@ -5,24 +5,43 @@ const products = require("../utils/products");
 
 
 Router.get("/",(req,res)=>{
-    console.log(req.session);
+    var status = false;
+    if(req.session.email)
+         status = true;
+
     res.render("homePage",{
-        products : products
+        products : products,
+        status : status
     });
 })
 
 
 Router.post("/",(req,res)=>{
+    console.log(req.body);
+    const comments = [];
     //Destructuring the body object
-    const { id, name, price, src,rating} = req.body;
+    const { name, price, src } = req.body;
 
-    //Initialisation
+    //Id Generation
+    const id = Math.floor(Math.random()*9000000000)+10000000000;
+    const finalId = id + "";
+
+
+    // Get index of product with same name
+    const getIndex = products.findIndex(user => user.name === name);
+    console.log(getIndex);
+
+    if(getIndex >= 0)
+    res.status(200).json("Product with same name exists !");
+    else{
+     //Initialisation
     const product = {};
-    product.id = id;
+    product.id = finalId;
     product.name = name;
     product.price = price;
     product.imgSrc = src;
-    product.rating = rating;
+    product.rating = 5;
+    product.comments = comments;
 
     //Push
     products.push(product);
@@ -30,9 +49,8 @@ Router.post("/",(req,res)=>{
     //For testing
     console.log(products);
 
-    res.status(200).json({
-        success : "Product posted successfully !"
-    })
+    res.status(200).json("Posted Successfully !");
+}
 })
 
 

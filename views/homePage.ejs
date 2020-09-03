@@ -9,10 +9,23 @@
     <title>Products</title>
 </head>
 <body>
-    <div class="searchBar">
+    <!-- <div class="searchBar">
+        <div class="searchquery">
         <i class="fa fa-search search" aria-hidden="true"></i>
         <input type="text" id="query" placeholder="Search...">
+        </div>
+    </div> -->
+
+    <% if(status === true){ %>
+    <div class="logout_button">
+        <div class="button">
+        <a href="/logout"><button>Sign Out</button></a>
+        <i class="fa fa-sign-out" aria-hidden="true"></i>
+        </div>
     </div>
+    <%}%>
+
+    
     <div class="container">
 
 

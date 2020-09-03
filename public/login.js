@@ -19,7 +19,15 @@ login.addEventListener("click",(e)=>{
     fetch("/login",options)
     .then(res=>res.json())
     .then((result)=>{
-        console.log(result);
+        if(result.email)
+        location.replace("/home");
+    else{
+        document.querySelector(".notify").style.display = "block";
+        document.querySelector(".notify").innerHTML = `<h2>${result}</h2>`;
+        setInterval(()=>{
+            document.querySelector(".notify").style.display = "none";
+        },5000)
+    }
     })
     .catch(err=>console.log(err));
 

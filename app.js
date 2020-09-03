@@ -6,7 +6,7 @@ const five_Hours = 1080000;
 
 // SESSION CONFIGURATION
 const sess = {
-  name: "detailInfo",
+  name: "storeUser",
   resave: false,
   saveUninitialized: true,
   secret: "mySecret",
@@ -40,6 +40,16 @@ const redirectHome = (req, res, next) => {
     next();
 }
 
+const redirect = (req,res,next) => {
+  if(req.session.email){
+    if(req.session.email === "admin@gmail.com")
+      next();
+    else
+      res.redirect("/register");
+  }else
+    res.redirect("/register");
+}
+
 
 //View Engine
 app.set("view engine","ejs");
@@ -50,14 +60,18 @@ const review = require("./routes/review");
 const home = require("./routes/home");
 const register = require("./routes/register");
 const login = require("./routes/login");
+const admin = require("./routes/admin");
+const logout = require("./routes/logout");
 
 
 
 //Routes
-app.use("/review", review);
-app.use("/home",redirectLogin,home);
+app.use("/review",redirectLogin, review);
+app.use("/home",home);
 app.use("/register",redirectHome, register);
 app.use("/login",redirectHome, login);
+app.use("/admin",redirect,admin);
+app.use("/logout",logout);
 
 
 module.exports = app;

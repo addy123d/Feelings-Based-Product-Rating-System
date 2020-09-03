@@ -28,6 +28,7 @@
         width: 300px;
         cursor: pointer;
         margin: 25%;
+        outline: none;
     }
 
     .card img{
@@ -51,10 +52,10 @@
     .card:hover{
         transition: all .3s;
         border-radius: 4px;
-        background: #fffbfb;
+        /* background: #fffbfb;
         box-shadow:  10px 10px 20px #c9c6c6, 
                     -10px -10px 20px #ffffff;
-        transform: scale(1.06);
+        transform: scale(1.06); */
     }
     .card:hover > .info{
         transition: all .3s;
@@ -115,40 +116,39 @@
         background: transparent;
     }
 
-    .searchBar{
-        position: absolute;
-        top: 5%;
-        left: 45%;
-        transform: translate(-50%,-50%);
+    .searchBar .searchquery{
+        position: relative;
+        top: 1rem;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         cursor: pointer;
         height: 50px;
         width: 50px;
     }
 
-    .searchBar input{
+    .searchquery input{
         outline: none;
         padding: 1em 1.7em 1em 1.7em;
         background: #fffbfb;
         border: 1px solid #a0a0a0;
-        width: 0%;
+        width: 0px;
         border-radius: 40px;
         font-family: 'Montserrat', sans-serif;
         font-weight: bolder;
     }
 
-    .searchBar:hover > input{
-        transition: all .4s;
-        padding: 1em 1.7em 1em 2.9em;
-        width: 250%;
-        display: flex;
-        justify-content: center;
+    .searchquery:hover > input{
+        transition:  all .3s;
+        padding: 1em 1.7em 1em 1.7em;
+        width: 100px;
     }
 
-
-    .searchBar i{
+    .searchquery i{
         position: absolute;
-        top: 11%;
-        left: 19%;
+        top: 17%;
+        left: 23%;
         font-size: 1.7rem;
         background: #ffffff;
         color: #000000;
@@ -157,9 +157,67 @@
         border-radius: 100%;
     }
 
+    .searchquery:hover > i{
+        display: none;
+    }
+
+    .logout_button .button{
+        position: relative;
+        top: 3rem;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    @media all and (max-width: 575.8px){
+    .logout_button .button{
+        position: relative;
+        top: 3rem;
+        left: 0rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    }
+
+    .button button{
+        padding: .6em 1em .6em 2em;
+        background: rgb(247, 42, 86);
+        border: 1px solid gray;
+        color: #f7f7f7;
+        text-shadow: 1px 1px 2px #000000;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: .9rem;
+        font-family: 'Josefin Sans', sans-serif;
+        text-transform: uppercase;
+        outline: none;
+    }
+
+    .button i{
+        position: absolute;
+        top: 23%;
+        left: 8%;
+        color: #ffffff;
+        text-shadow: 1px 1px 2px #000000;
+    }
+
+    .button button:hover{
+        transition: all .3s;
+        background: rgb(207, 34, 72);
+    }
+
     a{
         text-decoration: none;
         color: #fffbfb;
+    }
+
+    @media all and (max-width: 575.8px){
+        .card:hover{
+            transition: all .3s;
+            border-radius: 4px;
+        }
     }
     
     @media all and (max-width: 1500px){

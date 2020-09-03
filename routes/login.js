@@ -16,7 +16,16 @@ Router.post("/",(req,res,next)=>{
 
     const result = login(email,password);
     
-    res.status(200).json(result);
+    if(result.email){
+        const { email, password } = result;
+        req.session.email = email;
+        req.session.password = password;
+        console.log(req.session);
+        res.status(200).json(result);
+    }else
+        res.status(200).json(result);
+
+        
 })
 
 

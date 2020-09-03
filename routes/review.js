@@ -49,7 +49,8 @@ Router.get("/:id",(req,res,next)=>{
     const requiredProduct = products[productIndex]; 
 
     res.status(200).render("reviewPage",{
-        product : requiredProduct
+        product : requiredProduct,
+        user : req.session.email
     })
 
 })
@@ -59,13 +60,13 @@ Router.get("/:id",(req,res,next)=>{
 //Post Comments
 Router.post("/:id",(req,res,next)=>{
     console.log("hit");
-
+    console.log(req.session);
     const {comment} = req.body;
     const id = req.params.id;
 
     // Comment Object
     const commentObject = {};
-    commentObject.username = "User";
+    commentObject.username = req.session.email;
     commentObject.comment = comment;
 
     //Grab index of product from storage of products using findIndex

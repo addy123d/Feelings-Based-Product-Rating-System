@@ -182,6 +182,27 @@
         color: #2e2e2e;
     }
 
+    
+    .back{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        margin: 3%;
+    }
+
+    .back i{
+        font-size: 2.5rem;
+        color: rgb(108, 108, 255);
+        outline: none;
+    }
+
+    .back i:hover{
+        transition: all .3s;
+        color: rgb(81, 81, 255);
+    }
+
+
 
 
     @media all and (max-width: 1200px) {
@@ -234,6 +255,9 @@
                         <i class="fa fa-paper-plane" aria-hidden="true"></i>
                     </div>
                 </form>
+                <div class="back">
+                    <a href="/home"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i></a>
+                </div>
             </div>
         </div>
     </div>
@@ -255,6 +279,8 @@
     </div>
 </body>
 <script>
+    const user = '<%= user %>';
+    console.log(user);
     // Grab HTML Elemments
 
     // Comments Related Elements
@@ -272,7 +298,7 @@
     // Localstorage Comments Display
     function displayComments(comment) {
         userComments.innerHTML += `<div class="commentBox">
-                                <p>User Says</p>
+                                <p>${user} Says</p>
                                 <h2>${comment}</h2>
                                </div>`;
     }

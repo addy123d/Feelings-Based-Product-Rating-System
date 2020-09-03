@@ -11,7 +11,7 @@ var session = require("express-session");
 var five_Hours = 1080000; // SESSION CONFIGURATION
 
 var sess = {
-  name: "detailInfo",
+  name: "storeUser",
   resave: false,
   saveUninitialized: true,
   secret: "mySecret",
@@ -38,6 +38,12 @@ var redirectLogin = function redirectLogin(req, res, next) {
 
 var redirectHome = function redirectHome(req, res, next) {
   if (req.session.email) res.redirect("/home");else next();
+};
+
+var redirect = function redirect(req, res, next) {
+  if (req.session.email) {
+    if (req.session.email === "admin@gmail.com") next();else res.redirect("/register");
+  } else res.redirect("/register");
 }; //View Engine
 
 
@@ -50,11 +56,17 @@ var home = require("./routes/home");
 
 var register = require("./routes/register");
 
-var login = require("./routes/login"); //Routes
+var login = require("./routes/login");
+
+var admin = require("./routes/admin");
+
+var logout = require("./routes/logout"); //Routes
 
 
-app.use("/review", review);
-app.use("/home", redirectLogin, home);
+app.use("/review", redirectLogin, review);
+app.use("/home", home);
 app.use("/register", redirectHome, register);
 app.use("/login", redirectHome, login);
+app.use("/admin", redirect, admin);
+app.use("/logout", logout);
 module.exports = app;

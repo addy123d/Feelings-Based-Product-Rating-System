@@ -1,6 +1,12 @@
 "use strict";
 
-var registeredUsers = []; //Get index if there is existing user
+var registeredUsers = [{
+  email: "admin@gmail.com",
+  password: "admin"
+}, {
+  email: "acd3101282@gmail.com",
+  password: "123"
+}]; //Get index if there is existing user
 
 function registration(email, password) {
   var users = {}; //Get Index
@@ -24,7 +30,7 @@ function login(email, password) {
   }); //if index is -1 , then user is new, else index is > 0, then login process should be done !
 
   if (getIndex < 0) return "Something Went Wrong !";else {
-    if (registeredUsers[getIndex].email === email && registeredUsers[getIndex].password === password) return "Logged In Successfully !";
+    if (registeredUsers[getIndex].email === email && registeredUsers[getIndex].password === password) return registeredUsers[getIndex];else return "Password not Matched !";
   }
 }
 

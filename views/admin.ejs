@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat:wght@300&display=swap" rel="stylesheet">
-    <title>Login</title>
+    <title>Register</title>
 </head>
 <style>
     *{
@@ -47,7 +47,7 @@
         left: 0;
     }
 
-    input[type = "email"],input[type = "password"]{
+    input[type = "text"],input[type = "url"]{
         padding: 1em 1em 1em 2.4em;
         border-radius: 5px;
         outline: none;
@@ -65,7 +65,7 @@
     .submitButton i{
         position: absolute;
         top: 35%;
-        right: 28%;
+        right: 29%;
         color: #ffffff;
         text-shadow: 1px 1px 2px #000000; 
     }
@@ -79,7 +79,7 @@
     }
 
     .submitButton button{
-        padding: .6em 2em .6em 2em;
+        padding: .6em 2.3em .6em 1.3em;
         background: rgb(108, 108, 255);
         border: 1px solid gray;
         color: #f7f7f7;
@@ -112,9 +112,9 @@
     }
 
     .notify{
+        display: none;
         background: rgb(245, 39, 74);
         padding: 1em 3em 1em 3em;
-        display: none;
     }
 
     .notify h2{
@@ -126,7 +126,7 @@
     .notify h2 i{
         color: yellow;
     }
-    
+
     .text{
         display: flex;
         justify-content: center;
@@ -144,24 +144,13 @@
         text-decoration: none;
     }
 
-    .back{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        margin: 3%;
+
+    img{
+        display: none;
+        height: 180px;
+        width: 180px;
     }
 
-    .back i{
-        font-size: 2.5rem;
-        color: rgb(108, 108, 255);
-        outline: none;
-    }
-
-    .back i:hover{
-        transition: all .3s;
-        color: rgb(81, 81, 255);
-    }
 
     @media all and (max-width: 574.6px){
         .form{
@@ -176,38 +165,45 @@
                         -20px -20px 60px #ffffff;
         }
     }
+
+    
 </style>
 <body>
     <div class="container">
         <div class="notify">
-            <h2>SomeThing Went Wrong <i class="fa fa-exclamation-triangle" aria-hidden="true"></i></h2>
+            <h2>Something Went Wrong <i class="fa fa-exclamation-triangle" aria-hidden="true"></i></h2>
         </div>
-            <div class="form" id="loginForm">
-                <div class="heading">
-                    <h2>Login <i class="fa fa-sign-in" aria-hidden="true"></i></h2>
-                </div>
-                <form action="/login" method="POST">
-                <div class="email">
-                    <input type="email" class="loginEmail" name="email" placeholder="Email-Id" id="">
-                    <i class="fa fa-envelope" aria-hidden="true"></i>
-                </div>
-                <div class="password">
-                    <input type="password" class="loginPassword" name="password" placeholder="Enter Your Password...." id="">
-                    <i class="fa fa-key" aria-hidden="true"></i>
-                </div>
-                <div class="submitButton">
-                    <button id="loginBtn">Sign In</button>
-                    <i class="fa fa-paper-plane" aria-hidden="true"></i>
-                </div>
-                <div class="text">
-                    <a href="/register"><h2>Not Registered ?</h2></a>
-                </div>
-                <div class="back">
-                    <a href="/home"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i></a>
-                </div>
-                </form>
+      
+        <div class="form">
+            <div class="heading">
+                <h2>Upload <i class="fa fa-upload" aria-hidden="true"></i></h2>
             </div>
+            <form action="/home" method="POST">
+            <div class="email">
+                <input type="text" name="name" class="product_name" placeholder="Product Name" id="">
+                <i class="fa fa-product-hunt" aria-hidden="true"></i>
+            </div>
+
+            <div class="email">
+                <input type="text" name="price" class="product_price" placeholder="Price" id="">
+                <i class="fa fa-usd" aria-hidden="true"></i>
+            </div>
+
+            <div class="email">
+                <input type="url" class="url" name="src" placeholder="Paste Image URL" id="">
+                <i class="fa fa-file-image-o" aria-hidden="true"></i>
+            </div>
+
+            <div class="email">
+                <img src="" alt="" >
+            </div>
+            <div class="submitButton">
+                <button id="upload_button">Upload</button>
+                <i class="fa fa-upload" aria-hidden="true"></i>
+            </div>
+            </form>
+        </div>
     </div>
 </body>
-<script src="login.js"></script>
+<script src="admin.js"></script>
 </html>

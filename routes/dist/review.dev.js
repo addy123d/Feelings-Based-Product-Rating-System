@@ -49,20 +49,26 @@ Router.get("/:id", function (req, res, next) {
 
   var requiredProduct = products[productIndex];
   res.status(200).render("reviewPage", {
-    product: requiredProduct
+    product: requiredProduct,
+    user: req.session.email
   });
 }); //Post Comments
 
 Router.post("/:id", function (req, res, next) {
   console.log("hit");
+  console.log(req.session);
   var comment = req.body.comment;
-  var id = req.params.id; //Grab index of product from storage of products using findIndex
+  var id = req.params.id; // Comment Object
+
+  var commentObject = {};
+  commentObject.username = req.session.email;
+  commentObject.comment = comment; //Grab index of product from storage of products using findIndex
 
   var index = products.findIndex(function (product) {
     return product.id === id;
   }); //Push Comment
 
-  products[index].comments.push(comment); // Feelings Points
+  products[index].comments.push(commentObject); // Feelings Points
   //Word Normalisation
 
   var normalisedText = normaliser(comment); //Word Tokenisation

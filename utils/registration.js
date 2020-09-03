@@ -1,4 +1,10 @@
-const registeredUsers = [];
+const registeredUsers = [{
+    email : "admin@gmail.com",
+    password : "admin"
+},{
+    email : "acd3101282@gmail.com",
+    password : "123"
+}];
 
 //Get index if there is existing user
 function registration(email, password){
@@ -31,7 +37,9 @@ function login(email,password){
         return "Something Went Wrong !";
     else{
         if(registeredUsers[getIndex].email === email && registeredUsers[getIndex].password === password)
-        return "Logged In Successfully !";
+        return registeredUsers[getIndex];
+        else
+        return "Password not Matched !";
     }
 }
 
