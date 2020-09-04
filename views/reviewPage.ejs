@@ -288,7 +288,7 @@
 <script>
     const user = '<%= user %>';
 
-    
+
     // Grab HTML Elemments
 
     // Comments Related Elements
@@ -299,6 +299,7 @@
     // Form related Elements
     const form = document.querySelector("#reviewForm");
     const emoji = document.querySelector("#emoji");
+    const rating = document.querySelector("#rating");
 
     // Notification Element
     const notification = document.querySelector(".notify");
@@ -309,19 +310,6 @@
                                 <p>${user} Says</p>
                                 <h2>${comment}</h2>
                                </div>`;
-    }
-
- // Point Calculation
-    const points = [];
-    function developPoints_array(finalPoints){
-        points.push(finalPoints);
-    }
-
-    function retrievePoints(){
-        if( points.length === 0)
-            return 5;
-        else
-            return points[points.length-1];
     }
 
 
@@ -347,28 +335,22 @@
             .then(res => res.json())
             .then((analysis) => {
                 const { resultantPoints } = analysis;
-                
-                const finalPoint = retrievePoints();
-                const finalPoints = pointAddition(parseFloat(resultantPoints), parseFloat(finalPoint));
 
 
-                //Push points in the array
-                developPoints_array(finalPoints);
-
-
+                console.log(resultantPoints);
                 // For positive feeling
-                if (finalPoints > 0) {
-                    emoji.innerHTML = `&#128525;<span id="rating">${finalPoints}</span>`;
+                if (resultantPoints > 0) {
+                        emoji.innerHTML = `&#128525;<span id="rating">${resultantPoints - 1.5}</span>`;
                 }
 
                 // For neutral feeling
-                if (finalPoints === 0) {
-                    emoji.innerHTML = `&#128528;<span id="rating">${finalPoints}</span>`;
+                if (resultantPoints === 0) {
+                        emoji.innerHTML = `&#128528;<span id="rating">${resultantPoints + 2.5}</span>`;
                 }
 
                 // For negative feeling
-                if (finalPoints < 0) {
-                    emoji.innerHTML = `&#128545;<span id="rating">${finalPoints}</span>`;
+                if (resultantPoints < 0) {
+                        emoji.innerHTML = `&#128545;<span id="rating">${resultantPoints + 2}</span>`;
                 }
 
             })
@@ -383,12 +365,14 @@
     // Post Comments On Wall !
     commentPost.addEventListener("click", (e) => {
         e.preventDefault();
-
         // Notification
         notification.style.opacity = "1";
         setTimeout(()=>{
             notification.style.opacity = "0";
-        },1000)
+        },2000)
+
+        
+
 
         //To access id from url bar
         const path = location.pathname.split("/");
@@ -440,22 +424,9 @@
             commentText.value = "";
 
         }
+
     })
 
-
-    // Points Calculation
-
-    function pointAddition(points, totalPoints){
-        if((totalPoints === 5 && points > 0) || (totalPoints < -5 && points < 0)){
-            console.log("Hit me up !");
-            return totalPoints;
-        }else{
-            totalPoints =  points + totalPoints;
-            console.log(totalPoints);
-        }
-            return totalPoints;
-        
-    }
 
 
 
