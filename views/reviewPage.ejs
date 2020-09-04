@@ -273,7 +273,7 @@
 
     <div class="collection">
         <div class="comment-title">
-            <h2>Reviews <i class="fa fa-comments" aria-hidden="true"></i></h2>
+            <h2>Reviews (<%=product.comments.length%>) <i class="fa fa-comments" aria-hidden="true"></i></h2>
         </div>
         <div class="user-comments">
             <%for(var i=0; i< product.comments.length; i++){%>
@@ -340,17 +340,17 @@
                 console.log(resultantPoints);
                 // For positive feeling
                 if (resultantPoints > 0) {
-                        emoji.innerHTML = `&#128525;<span id="rating">${resultantPoints - 1.5}</span>`;
+                        emoji.innerHTML = `&#128525;`;
                 }
 
                 // For neutral feeling
                 if (resultantPoints === 0) {
-                        emoji.innerHTML = `&#128528;<span id="rating">${resultantPoints + 2.5}</span>`;
+                        emoji.innerHTML = `&#128528;`;
                 }
 
                 // For negative feeling
                 if (resultantPoints < 0) {
-                        emoji.innerHTML = `&#128545;<span id="rating">${resultantPoints + 2}</span>`;
+                        emoji.innerHTML = `&#128545;`;
                 }
 
             })
@@ -394,8 +394,10 @@
         if (commentText.value == "")
             alert("Please enter some text !");
         else {
+
             commentsObject.push(commentText.value);
 
+            
             // Comments Entry in Localstorage
             localStorage.setItem("comments", JSON.stringify(commentsObject));
 
